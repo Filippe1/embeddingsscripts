@@ -15,7 +15,7 @@ export default function UploadPage() {
       const data = await res.json();
       if (res.ok) {
         setStatus('Upload complete');
-        setProgress(`Inserted ${data.insertedRows} of ${data.totalRows} rows.`);
+        setProgress(`Inserted ${data.insertedRows} of ${data.insertedRows} rows.`);
       } else {
         setStatus('Error');
         setProgress(data.error || 'Unknown error');
