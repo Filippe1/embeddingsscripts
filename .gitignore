@@ -25,6 +25,7 @@
 *.pem
 /pdfs/
 /pdfx/
+/output/
 
 
 # debug
