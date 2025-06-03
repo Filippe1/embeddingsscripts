@@ -17,7 +17,7 @@ export default async function handler(req, res) {
 
   try {
     // 1️⃣ Get the list of PDFs in the /pdfs folder
-    const pdfFolder = path.join(process.cwd(), "pdfs");
+    const pdfFolder = path.join(process.cwd(), "pdfx");
     const files = fs.readdirSync(pdfFolder).filter(file => file.endsWith(".pdf"));
 
     if (files.length === 0) {
@@ -142,3 +142,13 @@ while (start < text.length) {
     res.status(500).json({ error: "Failed to process PDF files." });
   }
 }
+
+
+// 🚀 Remove request body size limit
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '100mb' // adjust as needed
+    }
+  }
+};

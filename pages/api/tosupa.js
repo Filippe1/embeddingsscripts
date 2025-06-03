@@ -73,3 +73,12 @@ export default async function handler(req, res) {
       insertedRows
     });
   }
+
+// 🚀 Remove request body size limit
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '100mb' // adjust as needed
+    }
+  }
+};
