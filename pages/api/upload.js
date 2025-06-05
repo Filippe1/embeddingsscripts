@@ -14,7 +14,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const pdfFolder = path.join(process.cwd(), "pdfs");
+    const pdfFolder = path.join(process.cwd(), "pdfx");
     const files = fs.readdirSync(pdfFolder).filter(file => file.endsWith(".pdf"));
 
     if (files.length === 0) {
