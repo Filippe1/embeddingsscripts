@@ -36,6 +36,13 @@ export default async function handler(req, res) {
       const data = await pdfParse(pdfBuffer);
       let text = data.text;
 
+      // 🚀 Remove text after 'contraindication' (case insensitive)
+      const contraindicationIndex = text.toLowerCase().indexOf('contraindic');
+      if (contraindicationIndex !== -1) {
+        text = text.substring(0, contraindicationIndex);
+      }
+
+
       // 🚀 Remove redundant/repetitive sentences
       const sentences = text.split(/(?<=[.!?])\s+/); // Split by sentence end
       const seen = new Set();
