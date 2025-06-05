@@ -37,7 +37,7 @@ export default async function handler(req, res) {
       let text = data.text;
 
       // 🚀 Remove text after 'contraindication' (case insensitive)
-      const contraindicationIndex = text.toLowerCase().indexOf('contraindic');
+      const contraindicationIndex = text.indexOf('Contraindic');
       if (contraindicationIndex !== -1) {
         text = text.substring(0, contraindicationIndex);
       }
