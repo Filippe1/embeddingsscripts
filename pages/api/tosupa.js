@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { parse } from 'csv-parse/sync';
 import { createClient } from '@supabase/supabase-js';
+import { title } from 'process';
 
 const supabaseUrl = process.env.YOUR_SUPABASE_URL;
 const supabaseKey = process.env.YOUR_SUPABASE_KEY; // Use Service Role key for insert permissions
@@ -42,6 +43,8 @@ export default async function handler(req, res) {
       
         // Convert metadata to JSON object or null if invalid
         let metadataObj = record.metadata;
+        metadataObj = { title: record.metadata.replace(/\.pdf$/i, '') };
+        console.log(metadataObj);
         if (typeof metadataObj === 'string') {
           try {
             metadataObj = JSON.parse(record.metadata);
